@@ -4,13 +4,14 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>4272966c-c9d4-45bb-ae11-2c9cc1696348</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>ga_binary_training.py</StartupFile>
+    <StartupFile>visualize_agent.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>Agents for Snake</Name>
     <RootNamespace>Agents for Snake</RootNamespace>
+    <TestFramework>Pytest</TestFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>

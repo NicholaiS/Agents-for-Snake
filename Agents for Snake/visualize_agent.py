@@ -2,7 +2,7 @@ import pygame
 import numpy as np
 from snake_game import Game
 from ql_training import encode_state
-from ga_binary_training import decode_genome
+from ga_binary_training import select_movement
 
 class Visualizer:
     def __init__(self, game, agent, cell_size=30, frame_rate=15, agent_type='QL'):
@@ -57,7 +57,7 @@ class Visualizer:
                 state = encode_state(self.game)
                 action = np.argmax(self.agent[state])
             elif self.agent_type == 'GA':
-                action = decode_genome(self.agent, self.game)
+                action = select_movement(self.game)
 
             self.game.update(action)
             self.update_frame()
@@ -78,12 +78,12 @@ def main():
     try:
         game = Game(grid_size=20)
         ql_agent = np.load('Q-tables/q_table_final.npy')
-        ga_binary_agent = np.load('Best individuals binary/best_fitness_genome.npy')
+        ga_binary_agent = np.load('Best individuals binary/best_genome_gen_1000.npy')
         
         ql_visualizer = Visualizer(game, ql_agent, 30, 15, agent_type='QL')
         ga_binary_visualizer = Visualizer(game, ga_binary_agent, 30, 15, agent_type='GA')
         
-        agent_type = 'GA'
+        agent_type = 'QL'
         if agent_type.upper() == 'QL':
             ql_visualizer.play_game()
         elif agent_type.upper() == 'GA':

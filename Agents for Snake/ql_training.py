@@ -84,7 +84,7 @@ def calculate_reward(game, prev_score):
     return 0
 
 def train_agent(episodes=100000):
-    game = Game(grid_size=5)
+    game = Game(grid_size=20)
     agent = QLAgent(action_space=4, state_space=2**12)
     scores = []
     rewards = []
